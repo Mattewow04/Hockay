@@ -1,0 +1,10 @@
+pages:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Mise en ligne de Puck Suisse"
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
