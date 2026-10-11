@@ -1,0 +1,16 @@
+{
+  "name": "Puck Suisse",
+  "short_name": "Puck Suisse",
+  "description": "Jeu de hockey sur glace : National League, mode carrière et gestion de club.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0a1020",
+  "theme_color": "#0a1020",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
