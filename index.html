@@ -329,7 +329,7 @@ tr.rel td{background:rgba(226,54,63,.12)}tr.pro td{background:rgba(63,207,142,.1
 #ovLog .good{color:#5ff0b0}#ovLog .bad{color:#ff8f8f}#ovLog .row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 #talk{position:fixed;inset:0;z-index:60;background:rgba(4,8,18,.78);display:flex;align-items:center;justify-content:center;padding:14px}#talk[hidden]{display:none}#talk .nbox{max-width:520px;width:100%;max-height:92vh;overflow:auto}
 #talk .stack .btn{text-align:left}
-.capt{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0}.capt label{font-size:11px;color:#8d9ab5;display:flex;flex-direction:column;gap:4px}.capt select{background:#0a1020;color:#e9eef7;border:1px solid #243352;border-radius:8px;padding:7px;font-size:13px}
+.captsel{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0}.capt label{font-size:11px;color:#8d9ab5;display:flex;flex-direction:column;gap:4px}.capt select{background:#0a1020;color:#e9eef7;border:1px solid #243352;border-radius:8px;padding:7px;font-size:13px}
 .mood{display:flex;flex-direction:column;gap:5px}.mrow2{display:grid;grid-template-columns:28px 1fr auto auto;gap:8px;align-items:center;background:#141f36;border:1px solid #26324d;border-radius:9px;padding:7px 9px}.mrow2 .em{font-size:20px}.mrow2 b{font-size:13px}.mrow2 small{display:block;font-size:11px;color:#8d9ab5}
 .cap{display:inline-block;font-style:normal;font-size:10px;font-weight:800;background:#ffb627;color:#1d1404;border-radius:4px;padding:0 4px;margin-left:3px}.frm{font-size:11px;color:#8d9ab5;white-space:nowrap}.frm.pos{color:#5ff0b0}.frm.neg{color:#ff8f8f}
 .stf .sth{display:flex;justify-content:space-between;align-items:center;gap:8px}.stf .sth b{display:block;font-size:16px}.stf .sth small{color:#8d9ab5;font-size:12px}
@@ -344,6 +344,12 @@ tr.rel td{background:rgba(226,54,63,.12)}tr.pro td{background:rgba(63,207,142,.1
 .ais{display:flex;flex-wrap:wrap;gap:6px}.aist{font-size:12px;padding:3px 8px;border-radius:8px;border:1px solid #26324d;background:#141f36}.aist.amb{border-color:#c0392b}.aist.pru{border-color:#2e8b57}
 .rivb{font-size:12.5px;padding:6px 9px;border-radius:9px;background:#3a1620;border:1px solid #7a2a3a}
 .msum .kicker{margin-top:9px}.msum .note{margin:4px 0;line-height:1.35}
+#cpick{position:fixed;inset:0;background:rgba(4,8,18,.72);z-index:62;display:flex;align-items:center;justify-content:center;padding:10px}#cpick[hidden]{display:none}#cpick .nbox{max-height:94vh;overflow:auto}
+.captsel{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}.cslot{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:9px 11px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:inherit;font:inherit;cursor:pointer;text-align:left}.cslot small{opacity:.6;font-size:11px}.cslot b{font-size:14px}
+.cplist{display:flex;flex-direction:column;gap:5px}.cprow{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;column-gap:10px;text-align:left;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:inherit;font:inherit;cursor:pointer}.cprow small{grid-column:1;opacity:.6;font-size:11px}.cprow em{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;font-weight:800;color:#ffb627}.cprow.on{border-color:#ffb627;background:rgba(255,182,39,.1)}
+.asstb{display:flex;flex-direction:column;gap:6px;padding:9px 11px;border-radius:11px;background:linear-gradient(135deg,rgba(76,141,255,.16),rgba(76,141,255,.06));border:1px solid rgba(76,141,255,.45);font-size:13px}.asstb.off{opacity:.7;background:rgba(255,255,255,.03);border-color:var(--line)}
+.amk{display:flex;flex-direction:column;gap:6px}.amr{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03)}.amr small{display:block;opacity:.6;font-size:11px}
+.arow{display:flex;justify-content:space-between;align-items:center;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:inherit;font:inherit;text-align:left;cursor:pointer}.arow span{color:#ffb627;font-weight:800}
 #psheet{position:fixed;inset:0;background:rgba(4,8,18,.72);z-index:62;display:flex;align-items:center;justify-content:center;padding:10px}#psheet[hidden]{display:none}#psheet .nbox{max-height:94vh;overflow:auto}
 .atrs{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}.atr{display:grid;grid-template-columns:1fr 70px 34px;align-items:center;gap:6px;font-size:12.5px}.atr span{display:flex;flex-direction:column;line-height:1.15}.atr small{opacity:.6;font-size:10.5px}.atr em{font-style:normal;font-weight:700;text-align:right}
 .atr .fsb{grid-column:auto!important}.plink{cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}.natr summary{cursor:pointer;font-size:13px;list-style:none;color:#ffb627}.natr summary::-webkit-details-marker{display:none}
@@ -370,6 +376,47 @@ tr.rel td{background:rgba(226,54,63,.12)}tr.pro td{background:rgba(63,207,142,.1
 .ctabs{position:sticky;top:0;z-index:5;background:var(--night);padding:6px 0;margin:-6px 0 0}.ctabs .ti{margin-right:5px;font-size:13px}
 .urgs{display:flex;flex-wrap:wrap;gap:6px}.urg{border:1px solid #26324d;background:#141f36;color:#e6ecf7;border-radius:999px;padding:7px 12px;font:600 13px/1.2 var(--body);text-align:left}.urg.hot{border-color:#ff8f8f;background:rgba(255,107,107,.12)}
 .cmp td.pos{color:#5ff0b0;font-weight:700}
+
+/* ================= REFONTE VISUELLE DES MENUS ================= */
+:root{--tc:#ffb627;--glass:linear-gradient(180deg,rgba(28,40,68,.92),rgba(17,26,46,.92));--glass2:rgba(255,255,255,.035);--lineS:rgba(120,150,210,.18);--shadow:0 10px 30px -18px rgba(0,0,0,.8)}
+body{background:radial-gradient(1200px 600px at 15% -10%,#17284d 0%,transparent 60%),radial-gradient(900px 500px at 110% 10%,#2a1a3a 0%,transparent 55%),var(--night);background-attachment:fixed}
+.card{background:var(--glass);border:1px solid var(--lineS);border-radius:16px;box-shadow:var(--shadow);padding:15px 16px;gap:11px}
+.card .card{background:var(--glass2);box-shadow:none}
+.kicker{display:flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.16em;color:#9fb0cf}
+.card>.kicker:first-child::before{content:'';width:4px;height:14px;border-radius:2px;background:var(--tc);flex:none}
+.news li{background:var(--glass2);border-color:var(--lineS);border-radius:10px}
+.mini{border-radius:8px;padding:6px 10px;border-color:var(--lineS);transition:transform .08s}.mini:active,.btn:active,.ctabs button:active{transform:scale(.97)}
+.btn{border-color:var(--lineS);background:var(--glass);border-radius:12px;box-shadow:var(--shadow)}
+.btn.primary{background:linear-gradient(135deg,#ffc94a,#ff9f1c);color:#1d1404;border:0;box-shadow:0 10px 24px -12px rgba(255,170,30,.7)}
+.btn.primary small{color:rgba(29,20,4,.75)}
+.tw{background:var(--glass2);border-color:var(--lineS);border-radius:12px}
+/* en-tête du hub : barre compacte aux couleurs du club */
+#hub .top{position:relative;padding:10px 14px;border-radius:16px;background:linear-gradient(110deg,color-mix(in srgb,var(--tc) 22%,#121b30) 0%,#121b30 55%);border:1px solid var(--lineS);box-shadow:var(--shadow);overflow:hidden}
+#hub .top::after{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--tc)}
+#hub .top h2{font-size:28px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.02em}
+#hub .top .back{background:rgba(255,255,255,.06)}
+#hub .cash{font-size:22px;padding:5px 10px;border-radius:10px;background:rgba(63,207,142,.1)}#hub .cash.neg{background:rgba(226,54,63,.12)}
+.ctabs{position:sticky;top:0;z-index:5;padding:6px;margin:0 -2px;border-radius:14px;background:rgba(10,16,32,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--lineS)}
+.ctabs button{padding:7px 12px;font-size:13.5px;border-color:transparent;background:transparent;border-radius:10px}
+.ctabs button.on{background:var(--tc);color:#111;border-color:transparent;box-shadow:0 6px 16px -8px var(--tc)}
+.mestats{gap:8px}.mestats div{background:var(--glass);border-color:var(--lineS);border-radius:14px;padding:8px 6px}
+.mestats b{font-size:26px!important}
+/* menu principal */
+#menu .hero h1{text-shadow:0 8px 30px rgba(0,0,0,.45)}
+#menu .opts{background:var(--glass);border-color:var(--lineS);border-radius:16px;box-shadow:var(--shadow)}
+.seg{border-radius:10px}.seg button.on{background:rgba(255,182,39,.14);box-shadow:inset 0 -2px 0 var(--amber)}
+@media (orientation:landscape){
+ .screen#hub{max-width:1100px!important;display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:12px;grid-auto-flow:row dense}
+ #hub>:not(.card){grid-column:1/-1}
+ #hub>.card:has(.tw),#hub>.card:has(table),#hub>.card:has(.lines),#hub>.card:has(.chat),#hub>.card:has(.upg),#hub>.card:has(.plist),#hub>.card:has(.fseg),#hub>.card:has(.sgrid){grid-column:1/-1}
+ .screen#menu{max-width:1100px!important;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);column-gap:28px;align-content:start}
+ #menu>.hero{grid-row:1/span 30;position:sticky;top:12px;align-self:start}
+ #menu>:not(.hero){grid-column:2}
+ #menu .hero h1{font-size:clamp(56px,9vw,104px)}
+ #hub .top h2{font-size:26px}
+}
+@media (orientation:landscape) and (max-height:440px){#hub .top{padding:7px 12px}.mestats div{padding:6px}.mestats b{font-size:22px!important}}
+@media (orientation:portrait){#hub .top h2{font-size:21px;white-space:normal;line-height:1}#hub .cash{font-size:17px}}
 </style>
 <div id="app">
  <section id="menu" class="screen"></section>
@@ -437,9 +484,9 @@ const REAL={
  AJO:{g:[1,'Wolf'],f:[[8,'Devos'],[32,'Turkulainen'],[74,'Nättinen'],[20,'Cormier'],[7,'Carr'],[27,'Tanus'],[17,'Smirnovs'],[61,'Gerber'],[78,'Sopa']],d:[[60,'Honka'],[3,'Honka'],[26,'Fey'],[58,'Zgraggen'],[15,'Christe'],[2,'Pilet']]},
 };
 const DIFFS=[
- {k:'amateur',label:'Amateur',ai:0.86,steal:0.5,gk:0.9},
- {k:'pro',label:'Pro',ai:1,steal:0.8,gk:1},
- {k:'legende',label:'Légende',ai:1.1,steal:1.1,gk:1.06},
+ {k:'amateur',label:'Amateur',ai:0.95,steal:0.7,gk:0.97,hum:1,aim:1.12,mygk:1.02},
+ {k:'pro',label:'Pro',ai:1.07,steal:1,gk:1.05,hum:0.95,aim:0.95,mygk:1},
+ {k:'legende',label:'Légende',ai:1.16,steal:1.3,gk:1.1,hum:0.91,aim:0.82,mygk:0.97},
 ];
 const PERIODS=[60,90,120];
 const attackY=t=>t===0?GL:RH-GL, ownY=t=>t===0?RH-GL:GL, fwdOf=t=>t===0?-1:1;
@@ -483,7 +530,7 @@ function makeGame(cfg){
    box:0,out:false,chg:false,chgT:0,down:0,chk:0,whiff:0,poke:0,pokeDone:true,lastPoke:-9,follow:0,lostT:-9,deke:0,anim:rnd()*6,pid:null,num:0});
   const RG=G.roster[team].g,gkr=RG?RG.ovr:G.t[team].gk;
   G.gk.push({team,isGk:true,x:CX,y:ownY(team),hold:0,beat:0,noPick:0,fly:0,lag:0,num:RG?RG.num:REAL[G.t[team].id]?REAL[G.t[team].id].g[0]:(team?30:1),name:RG?RG.name:REAL[G.t[team].id]?REAL[G.t[team].id].g[1]:'',
-   spd:(13+(gkr+(RG&&RG.ato?RG.ato.pla||0:0)-70)*0.45)*(team===1?d.gk:1),rating:(gkr+(RG&&RG.ato?(RG.ato.ref||0)*0.5:0))*(team===1?d.gk:1),gcal:RG&&RG.ato?RG.ato.cal||0:0});
+   spd:(13+(gkr+(RG&&RG.ato?RG.ato.pla||0:0)-70)*0.45)*(team===1?d.gk:1),rating:(gkr+(RG&&RG.ato?(RG.ato.ref||0)*0.5:0))*(team===1?d.gk:(d.mygk||1)),gcal:RG&&RG.ato?RG.ato.cal||0:0});
  }
  for(const s of G.sk)assign(s,0);
  const tot=G.per*3;G.ev={inj:rnd()<0.14?tot*(0.15+rnd()*0.75):-1,obj:rnd()<0.13?tot*(0.2+rnd()*0.7):-1};G.injured=[];
@@ -499,7 +546,7 @@ function onIcePids(){const set=new Set();for(const s of G.sk)if(!s.out)set.add(s
 function AT(pid,k){return pid?(pid.ovr||80)+(pid.ato&&pid.ato[k]||0):80;}
 function clutch(){return !!(G.ot||G.so||(G.period>=3&&G.clock<G.per*0.3&&Math.abs(G.score[0]-G.score[1])<=1));}
 function maxSpd(s){const human=s===G.ctrl&&!G.auto,T=s.pid.ovr;
- let v=human?21.2+(T-78)*0.2:(18.6+(T-78)*0.27)*(s.team===1?G.d.ai:1);
+ let v=human?(21.2+(T-78)*0.2)*(G.d.hum||1):(18.6+(T-78)*0.27)*(s.team===1?G.d.ai:1);
  v*=0.76+0.24*s.pid.sta;if(G.puck&&G.puck.owner&&G.puck.owner!==s&&!human){const k=G.puck.owner.team===s.team?'off':'def';v*=1+(AT(s.pid,k)-s.pid.ovr)*0.003;}if(s.protect>0)v*=0.72;if(G.boost[s.team]>G.time)v*=1.05;return v;}
 
 // ---- engagement : zone undefined = centre, 0 = zone de l'équipe 0 (bas), 1 = zone de l'équipe 1 (haut)
@@ -735,7 +782,7 @@ function shoot(s,power,aimX,isHuman,aimH,charge){
  const base=Math.atan2(ty-p.y,tx-p.x),back=s.dir!==undefined&&Math.abs(angDiff(s.dir,base))>1.75;
  const spd=hyp(s.vx,s.vy),nk=(kind==='wrist'?0.8:kind==='snap'?0.9:1.25)*(back?1.35:1)*(1+Math.max(0,spd-14)*0.02);
  const sk=clutch()?(AT(s.pid,'tir')+AT(s.pid,'cal'))/2:AT(s.pid,'tir'),acc=clamp(1.3-(sk-75)*0.018,0.85,1.6);
- const noise=(rnd()-0.5)*2*(0.012+power*0.035)*nk*(isHuman?1:1.2)*(1.4-0.4*s.pid.sta)*acc;
+ const noise=(rnd()-0.5)*2*(0.012+power*0.035)*nk*(isHuman?1:1.2*(s.team===1?(G.d.aim||1):1))*(1.4-0.4*s.pid.sta)*acc;
  const a=base+noise,sp=(46+power*46)*(0.9+0.1*s.pid.sta)*(back?0.72:1)*clamp(0.87+(sk-75)*0.008,0.78,1.06);p.shotKind=back?'backhand':kind;
  const dist=hyp(p.x-CX,p.y-gY),lateral=Math.abs(p.x-CX);
  let q=clamp((32-dist)/32,0,1)*0.1+Math.max(0,(sp-60)/300)+(Math.abs(aimX)>GW*0.6?0.04:0)+(aimH==='hi'&&dist<16?0.05:0)+(aimH==='lo'&&dist<10?0.03:0)+(back&&dist<9?0.06:0);
@@ -848,7 +895,7 @@ function pokeResolve(s){
  const pd=segDist(p.x,p.y,s.x,s.y,ex,ey),c=p.owner,recent=G.time-s.lastPoke<1.1;s.lastPoke=G.time;
  if(c&&!c.isGk&&c.team!==s.team&&pd<1.3){
   let ch=0.6*Math.pow(AT(s.pid,'phy')/AT(c.pid,'phy'),2.5);
-  if(c.team===0&&!G.auto)ch*=G.d.steal/0.8;if(s.team===1)ch*=G.d.ai;if(c.deke>0)ch*=0.25;if(c.protect>0)ch*=0.3;
+  if(c.team===0&&!G.auto)ch*=G.d.steal;if(s.team===1)ch*=G.d.ai;if(c.deke>0)ch*=0.25;if(c.protect>0)ch*=0.3;
   if(rnd()<clamp(ch,0.08,0.9)){p.owner=null;const a=s.dir+(rnd()-0.5)*1.1;p.vx=c.vx*0.3+Math.cos(a)*12;p.vy=c.vy*0.3+Math.sin(a)*12;
    c.noPick=0.55;c.lostT=G.time;p.target=null;p.leadFor=null;G.st.take[s.team]++;fx('pokeok',s);}
   else fx('clack');
@@ -2586,7 +2633,7 @@ DAY_HOOKS.push(ctx=>{formAfterGame(ctx);const d=CAR.dayCount||0;if(d%3===0){week
 // ---------- carte « Vestiaire » (onglet Effectif)
 function lockerCard(){const my=teamPlayers(CAR.club).sort((a,b)=>(a.happy||0)-(b.happy||0)),C=capt(),opts=sel=>my.slice().sort((a,b)=>leadOf(b)-leadOf(a)).map(p=>`<option value="${p.id}" ${sel===p.id?'selected':''}>${esc(p.n)} · leadership ${leadOf(p)}</option>`).join(''),cb=captBonus(),fr=friendships(),I=CAR.iobj&&CAR.iobj.y===CAR.year?CAR.iobj.list:[];
  return`<div class="card"><div class="kicker">Vestiaire</div>
- <div class="capt"><label>Capitaine (C)<select data-capt="c"><option value="">—</option>${opts(C.c)}</select></label><label>Assistant (A)<select data-capt="a1"><option value="">—</option>${opts(C.a[0])}</select></label><label>Assistant (A)<select data-capt="a2"><option value="">—</option>${opts(C.a[1])}</select></label></div>
+ <div class="captsel">${[['c','Capitaine (C)',C.c],['a1','Assistant (A)',C.a[0]],['a2','Assistant (A)',C.a[1]]].map(([k,l,id])=>`<button class="cslot" data-cpick="${k}"><small>${l}</small><b>${id&&CAR.P[id]?esc(CAR.P[id].n):'Choisir…'}</b></button>`).join('')}</div>
  <p class="note">Effet des leaders sur l'équipe : <b class="${cb>=0.2?'pos':cb<0?'neg':''}">${cb>=0.5?'très positif':cb>=0.2?'positif':cb>=-0.1?'neutre':'négatif'}</b>. Un bon capitaine stabilise le moral et aide les recrues à s'adapter. Un joueur populaire n'est pas forcément un bon leader (personnalité, âge, expérience au club).</p>
  ${I.length?`<div class="kicker">Objectifs individuels</div><ul class="news">${I.map(o=>{const p=CAR.P[o.pid];if(!p)return'';const v=o.k==='g'?p.st.g:o.k==='p'?p.st.g+p.st.a:(p.st.gp?((p.st.ga||0)/p.st.gp).toFixed(2):'—');return`<li>${esc(p.n)} : ${o.txt} · <b>${v}</b>${o.done==='ok'?' ✔':o.done==='raté'?' ✖':''}</li>`;}).join('')}</ul>`:''}
  <div class="kicker">Moral et forme des joueurs</div>
@@ -2602,7 +2649,15 @@ function renderTalk(msg){let el=document.getElementById('talk');if(!el){el=docum
  <div class="stack">${TALK.map(t=>`<button class="btn" data-tk="${t[0]}"><b>${t[1]}</b><small style="display:block;font-weight:400;opacity:.75">${t[2]}</small></button>`).join('')}</div>
  <p class="note">Une discussion par joueur et par semaine environ. Les promesses non tenues coûtent cher.</p></div>`;}
 document.getElementById('hub').addEventListener('click',e=>{const t=e.target.closest('[data-talk]');if(!t||!CAR)return;TALKP=t.dataset.talk;renderTalk('');});
-document.getElementById('hub').addEventListener('change',e=>{const t=e.target.closest('[data-capt]');if(!t||!CAR||!t.value)return;setCaptain(t.dataset.capt,t.value);saveCar();renderHub();});
+// choix du capitaine : liste tactile (plus fiable qu'un menu déroulant sur téléphone)
+function openCapPick(role){let el=document.getElementById('cpick');if(!el){el=document.createElement('div');el.id='cpick';document.body.appendChild(el);
+  el.addEventListener('click',e=>{const t=e.target.closest('[data-cset]');if(e.target.id==='cpick'||e.target.closest('[data-cx]')){el.hidden=true;return;}if(!t)return;const r=el.dataset.role,id=t.dataset.cset;
+   if(id==='none'){const C=capt();if(r==='c')C.c=null;else C.a.splice(r==='a1'?0:1,1);}else setCaptain(r,id);saveCar();el.hidden=true;renderHub();});}
+ el.dataset.role=role;const C=capt(),cur=role==='c'?C.c:C.a[role==='a1'?0:1],my=teamPlayers(CAR.club).sort((a,b)=>leadOf(b)-leadOf(a));
+ el.innerHTML=`<div class="nbox"><div class="nhead"><div><b>${role==='c'?'Choisir le capitaine':'Choisir un assistant'}</b><small>Classés par leadership</small></div><button class="back" data-cx="1">✕</button></div>
+  <div class="cplist">${my.map(p=>`<button class="cprow ${p.id===cur?'on':''}" data-cset="${p.id}"><b>${esc(p.n)}</b><small>${POSN[p.pos]} · ${p.age} ans · ${PERS[persOf(p)].n}${p.id===C.c?' · capitaine':C.a.includes(p.id)?' · assistant':''}</small><em>${leadOf(p)}</em></button>`).join('')}</div>
+  ${cur?'<button class="btn" data-cset="none">Retirer ce rôle</button>':''}</div>`;el.hidden=false;}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-cpick]');if(!t||!CAR)return;e.stopPropagation();openCapPick(t.dataset.cpick);},true);
 // ================= STAFF DU CLUB : 9 postes, note, salaire, contrat, effets réels =================
 const STAFF_ROLES=[
  ['coach','Entraîneur principal','Cohésion et efficacité collective : bonus de note pour toute l\'équipe.'],
@@ -2855,7 +2910,7 @@ DAY_HOOKS.push(()=>{const R=rec(),k='recq'+CAR.year;CAR[k]=CAR[k]||{};const Q=CA
 
 // ---------- transparence : ce que change chaque niveau de difficulté
 function diffNote(i){const d=DIFFS[i]||DIFFS[1],pct=v=>(v>=1?'+':'')+Math.round((v-1)*100)+' %';
- return`<p class="note dnote"><b>${d.label}</b> · vitesse et réactivité des adversaires ${pct(d.ai)} · risque de te faire voler le puck ${pct(d.steal/0.8)} · gardien adverse ${pct(d.gk)}. La difficulté ne change que les matchs joués : jamais l'argent, le conseil, les blessures ni les matchs simulés.</p>`;}
+ return`<p class="note dnote"><b>${d.label}</b> · adversaires : vitesse et réactivité ${pct(d.ai)}, précision des tirs ${pct(2-d.aim)}, gardien ${pct(d.gk)} · risque de te faire voler le puck ${pct(d.steal)} · vitesse de ton joueur ${pct(d.hum)} · ton gardien ${pct(d.mygk)}. La difficulté ne change que les matchs joués : jamais l'argent, le conseil, les blessures ni les matchs simulés.</p>`;}
 // ================= CONSEIL D'ADMINISTRATION : demandes, explications, réunions, contrat du manager =================
 function repOf(){const E=eco(),titles=(CAR.history||[]).filter(h=>h.me).length;return Math.round(clamp(E.pop*0.7+titles*6+(myLeague()==='NL'?10:-10),5,100));}
 function bstate(){if(!CAR.bd||CAR.bd.y!==CAR.year)CAR.bd={y:CAR.year,dem:[],log:[],met:false};return CAR.bd;}
@@ -3052,7 +3107,7 @@ function clubRankPct(){const n=CAR.leagues[myLeague()].length;return myPos()/n;}
   if(st==='requin'){m*=1.1;N.pat=Math.max(2,N.pat-1);}if(st==='salaire'){m*=1.05;N.ymin=1;N.ymax=Math.max(N.ymax,4);}if(st==='duree'){N.ymin=Math.min(N.ymax,N.ymin+1);m*=0.96;}
   if(st==='tempsdejeu'&&kind==='sign'&&p.ovr<CAR.teams[CAR.club].ovr-2)m*=1.12;
   if(kind==='sign'&&String(p.team).startsWith('NHL:'))m*=1.05;
-  N.ask=Math.round(N.ask*m/5000)*5000;N.res=Math.round(N.res*m/5000)*5000;N.res0=N.res;N.ask0=N.ask;N.x={sign:0,perf:0,clause:0};N.agent=an;N.agStyle=st;
+  {const a0=N.ask;N.ask=Math.round(N.ask*m/5000)*5000;if(N.chat&&N.chat[0]&&a0!==N.ask)N.chat[0].t=N.chat[0].t.split(fmtCHF(a0)).join(fmtCHF(N.ask));}N.res=Math.round(N.res*m/5000)*5000;N.res0=N.res;N.ask0=N.ask;N.x={sign:0,perf:0,clause:0};N.agent=an;N.agStyle=st;
   // refus de principe
   let why=null;if(rel<=-3)why=`L'agence ${an} refuse de traiter avec ton club cette saison après vos négociations ratées.`;
   else if(kind==='sign'&&st==='ambition'&&(myLeague()==='SL'||clubRankPct()>0.7))why=`${an} : « Mon joueur veut jouer le titre. Votre club n'est pas assez ambitieux pour l'instant. »`;
@@ -3317,7 +3372,7 @@ function launchPre(){const P=PRE,op=P.mode==='career'?P.pool:P.oppPool;
 // ---------- HUB carrière
 const TABICON={home:'🏠',msg:'✉️',team:'👥',market:'🔁',journal:'📰',club:'🏛',staff:'👔',shop:'🛍',fans:'📣',league:'📊',hist:'🏆'};
 function renderHub(){
- if(!CAR)return;setLeague(CAR.leagues[myLeague()]);S=CAR.S;
+ if(!CAR)return;try{const t=teamById(CAR.club),hx=h=>{const m=/^#?([0-9a-f]{6})$/i.exec(h||'');if(!m)return 0;const n=parseInt(m[1],16);return(0.299*(n>>16)+0.587*(n>>8&255)+0.114*(n&255))/255;},cands=[t.c1,t.c2].filter(x=>hx(x)>0.25&&hx(x)<0.92);document.documentElement.style.setProperty('--tc',cands[0]||(hx(t.c2)>=0.92?'#ffb627':t.c2)||'#ffb627');}catch(e){}setLeague(CAR.leagues[myLeague()]);S=CAR.S;
  const T=CAR.teams[CAR.club],st=standings(S),pos=st.indexOf(S.user)+1,row=S.table[S.user],open=mercatoOpen();
  const tabs=[['home','Accueil'],['msg','Communication'+(unread()?` (${unread()})`:'')],['team','Effectif'],['market','Mercato'+(open?' ●':'')],['journal','Journal'],['club','Club'],['staff','Staff'],['shop','Commercial'],['fans','Supporters'+(pressAvail()||eco().crisis?' ●':'')],['league','Ligues'],['hist','Palmarès']];
  let body='';
@@ -3637,6 +3692,53 @@ document.getElementById('hub').addEventListener('click',async e=>{const t=e.targ
   if(id){N.rival={id,sal:Math.round(N.ask*1.04/5000)*5000};
    N.chat.push({w:'him',t:`Je dois être honnête : ${teamById(id).full} m'a fait une offre à ${fmtCHF(N.rival.sal)} CHF par saison. Il faudra me convaincre vite.`});}}
  return N;};}
+// ================= ASSISTANT DE NÉGOCIATION (facultatif) : il négocie, TU valides =================
+function asstSal(r){return Math.max(50000,Math.round((60000+(r-50)*4500)/5000)*5000);}
+function asstMarket(){if(!CAR.asstMkt||CAR.asstMkt.y!==CAR.year){const g=GEN_SUI;CAR.asstMkt={y:CAR.year,l:[0,1,2].map(i=>{const r=Math.round(clamp(48+i*14+(rnd()-0.5)*10,40,92));return{n:FIRST[Math.floor(rnd()*FIRST.length)]+' '+g[Math.floor(rnd()*g.length)],r,sal:asstSal(r),style:['prudent','équilibré','coriace'][i]};})};}return CAR.asstMkt.l;}
+function asst(){return CAR.asst||null;}
+// son salaire compte dans la masse salariale du staff
+{const _sp=staffPayroll;staffPayroll=function(){return _sp()+(CAR&&CAR.asst?CAR.asst.sal:0);};}
+function asstQ(){const A=asst();return A?clamp((A.r-45)/45,0,1):0;}
+// ---------- calcul de la proposition (rien n'est signé ici)
+function asstPropose(){if(!NEGO||!NEGO.N||!asst())return;const N=NEGO.N,A=asst(),q=asstQ();
+ if(NEGO.kind==='sign'||NEGO.kind==='renew'){const p=CAR.P[NEGO.pid];if(!p)return;const ok=rnd()<0.55+0.4*q,span=Math.max(0,N.ask-N.res);
+  const sal=Math.round((ok?N.res+span*(0.55-0.5*q):N.ask*(0.99-0.04*q))/5000)*5000,yrs=clamp(p.age<=25?N.ymax:p.age>=32?N.ymin:Math.round((N.ymin+N.ymax)/2),1,5);
+  N.asst={sal,yrs,ok};if(!ok)N.pat=Math.max(1,N.pat-1);
+  N.chat.push({w:'sys',t:`${A.n} (ton assistant) : « ${ok?`J'ai discuté avec son agent. Il est prêt à signer à ${fmtCHF(sal)} CHF par saison sur ${yrs} an${yrs>1?'s':''}.`:`Il est dur en affaires. Le mieux que j'obtiens : ${fmtCHF(sal)} CHF par saison sur ${yrs} an${yrs>1?'s':''}.`} Je n'ai rien signé : à toi de valider. »`});}
+ else if(NEGO.kind==='deal'){const ok=rnd()<0.6+0.35*q,span=Math.max(0,N.max-N.offer),fee=Math.round((N.offer+span*(ok?0.35+0.55*q:0.15))/1e4)*1e4;N.asst={fee,ok};if(!ok)N.pat=Math.max(1,N.pat-1);
+  const O=N.O;N.chat.push({w:'sys',t:`${A.n} (ton assistant) : « ${O.type==='box'?`${O.brand} accepte de payer ${fmtCHF(fee)} CHF pour la loge cette saison.`:`${O.brand} monte à ${fmtCHF(fee)} CHF par saison.`} Rien n'est signé tant que tu ne valides pas. »`});}
+ saveCar();renderNego();}
+function asstValidate(){const N=NEGO&&NEGO.N,P=N&&N.asst;if(!P)return;
+ if(NEGO.kind==='sign'||NEGO.kind==='renew'){const p=CAR.P[NEGO.pid],r=finalize(p,N,P.sal,P.yrs);if(r===true||r===undefined){N.status='accepted';N.chat.push({w:'him',t:'Marché conclu ! Merci, coach.'});}else N.chat.push({w:'sys',t:r});}
+ else{const O=N.O,E=eco(),fee=P.fee;
+  if(O.type==='box'){if(freeBoxes()>0){E.boxes.push({co:O.brand,price:fee});news(`Loge louée à ${O.brand} pour ${fmtCHF(fee)} CHF.`);N.deal=fee;N.status='accepted';}else N.chat.push({w:'sys',t:'Plus aucune loge libre.'});E.boxOffers=E.boxOffers.filter(x=>x!==O.ref);}
+  else{const old=E.sponsor;E.sponsor={brand:O.brand,amount:fee,yrs:O.yrs};N.deal=fee;N.status='accepted';E.spOffers=E.spOffers.filter(x=>x!==O);
+   news(!old||old.brand!==O.brand?`Nouveau sponsor maillot : ${O.brand} (${fmtCHF(fee)} CHF par saison).`:`Sponsor ${O.brand} prolongé à ${fmtCHF(fee)} CHF par saison.`);
+   const rest=CAR.S.phase==='regular'?Math.max(0,1-CAR.S.round/CAR.S.rounds.length):0;earn('sponsors',Math.round(fee*rest*0.5));}}
+ N.asst=null;saveCar();renderNego();}
+// ---------- dans la fenêtre de négociation
+{const _rn=renderNego;renderNego=function(){_rn();const el=document.getElementById('nego');if(!el||el.hidden||!NEGO||!NEGO.N||NEGO.kind==='sell'||el.querySelector('.asstb'))return;const N=NEGO.N;if(N.status!=='open')return;
+ if((NEGO.kind==='sign'||NEGO.kind==='renew')&&!mercatoOpen())return;const A=asst(),chat=el.querySelector('.chat');if(!chat)return;
+ let h='';if(!A)h=`<div class="asstb off">🤝 Un assistant de négociation peut mener cette discussion pour toi (à engager dans l'onglet Staff).</div>`;
+ else if(N.asst){const P=N.asst;h=`<div class="asstb"><div>🤝 <b>Proposition de ${esc(A.n)}</b> : ${P.fee!=null?`${fmtCHF(P.fee)} CHF${N.O&&N.O.type==='box'?' la saison':' par saison'}`:`${fmtCHF(P.sal)} CHF par saison · ${P.yrs} an${P.yrs>1?'s':''}`}</div><div class="row2"><button class="mini primary" data-asst="ok">✅ Valider</button><button class="mini" data-asst="no">Refuser</button></div></div>`;}
+ else h=`<div class="asstb"><div>🤝 <b>${esc(A.n)}</b> (note ${A.r}) peut négocier pour toi. Il te soumettra le résultat : rien n'est signé sans ta validation.</div><button class="mini primary" data-asst="go">Lui confier la négociation</button></div>`;
+ chat.insertAdjacentHTML('afterend',h);};}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-asst]');if(!t||!CAR)return;e.stopPropagation();const a=t.dataset.asst;
+ if(a==='go')asstPropose();else if(a==='ok')asstValidate();else if(a==='no'){if(NEGO&&NEGO.N){NEGO.N.asst=null;NEGO.N.chat.push({w:'sys',t:'Tu refuses la proposition de ton assistant. Tu peux continuer à négocier toi-même.'});saveCar();renderNego();}}
+ else if(a==='hire'){const c=asstMarket()[+t.dataset.i];if(c){CAR.asst={...c,y:CAR.year};CAR.asstMkt.l.splice(+t.dataset.i,1);news(`${c.n} devient ton assistant de négociation (${fmtCHF(c.sal)} CHF par saison).`);saveCar();renderHub();}}
+ else if(a==='fire'){const A=asst();if(A){news(`${A.n} n'est plus ton assistant de négociation.`);CAR.asst=null;saveCar();renderHub();}}
+ else if(a==='case'){const [k,v]=t.dataset.v.split(':');if(k==='p')openNego(v,'renew');else if(k==='b')openBox(+v);else if(k==='s')openSponsor(+v,v==='r');}},true);
+// ---------- carte dans l'onglet Staff
+function asstCases(){const out=[],E=eco();if(mercatoOpen())for(const p of teamPlayers(CAR.club))if(p.yrs<=1)out.push([`Prolongation de ${p.n} (${p.yrs<=0?'fin de contrat':'dernière année'})`,'p:'+p.id]);
+ (E.boxOffers||[]).forEach((o,i)=>out.push([`Loge demandée par ${o.co}`,'b:'+i]));(E.spOffers||[]).forEach((o,i)=>out.push([`Sponsor maillot : offre de ${o.brand}`,'s:'+i]));return out.slice(0,8);}
+function asstCard(){const A=asst();
+ if(!A){const M=asstMarket();return`<div class="card"><div class="kicker">Assistant de négociation · facultatif</div><p>Il négocie pour toi les contrats des joueurs, la location des loges et les sponsors. Il te présente toujours le résultat : <b>rien n'est signé sans ta validation</b>. Plus sa note est haute, meilleurs sont les accords.</p>
+  <div class="amk">${M.map((c,i)=>`<div class="amr"><div><b>${esc(c.n)}</b><small>Style ${c.style} · ${fmtCHF(c.sal)} CHF/saison</small></div>${ovrTag(c.r)}<button class="mini primary" data-asst="hire" data-i="${i}">Engager</button></div>`).join('')}</div></div>`;}
+ const C=asstCases();
+ return`<div class="card"><div class="kicker">Assistant de négociation</div><div class="amr"><div><b>${esc(A.n)}</b><small>Style ${A.style} · ${fmtCHF(A.sal)} CHF/saison</small></div>${ovrTag(A.r)}<button class="mini" data-asst="fire">Se séparer</button></div>
+  ${C.length?`<div class="kicker">Dossiers qu'il peut traiter</div><div class="amk">${C.map(([l,v])=>`<button class="arow" data-asst="case" data-v="${v}">${esc(l)} <span>→</span></button>`).join('')}</div>`:'<p class="note">Aucun dossier en attente pour l\'instant.</p>'}
+  <p class="note">Ouvre un dossier puis touche « Lui confier la négociation ». Il te propose un accord ; tu valides ou tu refuses.</p></div>`;}
+{const _st=staffTab;staffTab=function(){return asstCard()+_st();};}
 // ================= FILM DU TITRE : parade en bus + fête =================
 const FILM={on:false,t:0,last:0,done:null,team:null,parts:[],fw:[],seed:0};
 function playFilm(team,onDone){
@@ -4016,11 +4118,11 @@ fx=(k,a)=>{
   case'recv':SND.recv();if(a&&depthOf(a.team,a.y)>50)say(pick([`Pour ${NM(a)}...`,`Passe à ${NM(a)}...`,`${NM(a)}...`]),{pri:1,key:'recv',cool:2.2});break;
   case'stick':SND.recv();break;
   case'board':SND.board(a/90);break;
-  case'post':SND.post();netHit(G.puck.y<50?0:1,0.25);ooh(0.1);if(G)float('POTEAU',G.puck.x,G.puck.y);say(pick(['AU POTEAU !','Ding ! Le poteau !','Oh, le montant ! Il était pas loin !']),{pri:3});break;
+  case'post':SND.post();netHit(G.puck.y<50?0:1,0.25);ooh(0.1);if(G)float('POTEAU',G.puck.x,G.puck.y);say(pick(['AU POTEAU !','Ding ! Le poteau !','Oh, le montant ! Il était pas loin !','La barre transversale ! Quelle malchance !','Le métal sauve le gardien !']),{pri:3});break;
   case'save':{SND.pad();const g=a.g,N=g.name||'le gardien',big=a.isShot&&a.q>0.22;G.lastSaveC=performance.now();
    if(g.team===CRW.home)applause(big?2.2:1.2,big?0.18:0.11);if(big)ooh(0.08);
    if(big){say(pick([`QUEL ARRÊT DE ${N.toUpperCase()} !`,`${N} vole un but !`,`Arrêt spectaculaire de ${N} !`,`${N} dit non !`]),{pri:3});color(pick([`${N} est en feu ce soir, déjà ${g.saves||1} arrêts.`,'Un arrêt de classe mondiale.','Il a lu le jeu parfaitement, quel positionnement.','Il a sorti la jambière au dernier moment.']),{key:'gk',cool:8});if(g.team===0)float('ARRÊT !',g.x,g.y-8,1,'#7fe0a8');}
-   else if(a.isShot)say(pick([`Arrêt de ${N} !`,`${N} est là !`,`Repoussé par ${N} !`,`Et l'arrêt de ${N} !`,`${N} ferme la porte !`,`Belle parade de ${N} !`]),{pri:2,key:'save',cool:1.5});
+   else if(a.isShot)say(pick([`Arrêt de ${N} !`,`${N} est là !`,`Repoussé par ${N} !`,`Et l'arrêt de ${N} !`,`${N} ferme la porte !`,`Belle parade de ${N} !`,`${N} s'interpose !`,`Du jambière, ${N} !`,`${N} reste solide !`,`Pas de passage, ${N} veille !`]),{pri:2,key:'save',cool:1.5});
    if(a.isShot&&g.saves&&g.saves%8===0)color(`${N} en est à ${g.saves} arrêts. Il est impérial devant son filet.`,{key:'gkm',cool:20});}break;
   case'glove':{SND.glove();const N=a&&a.g&&a.g.name||'le gardien';if(a&&a.isShot){say(pick([`Mitaine de ${N} !`,`${N} le capte !`,`Saisi par ${N} !`]),{pri:2,key:'save',cool:1.5});if(a.g.team===CRW.home)applause(1,0.1);}}break;
   case'gpoke':{const N=a.name||'le gardien';SND.clack();say(pick([`${N} sort de sa cage et lui enlève la rondelle !`,`Superbe sortie de ${N} !`]),{pri:2,key:'gpoke',cool:5});}break;
@@ -4036,7 +4138,7 @@ fx=(k,a)=>{
   case'clack':if(Math.random()<0.5)SND.clack();break;
   case'woosh':break;
   case'check':SND.thud(a.big?0.9:0.55);if(a.big){if(a.team===CRW.home)roar(0.2,1.3);else boo();ooh(0.09);float('GROSSE CHARGE !',a.x,a.y-6.5,1.2);try{navigator.vibrate&&navigator.vibrate(40);}catch(e){}
-   say(pick(['OH ! Il l\'a frappé solidement !','Quelle mise en échec !','Boum ! Contre la bande !','Il l\'a mis au tapis !']),{pri:3,key:'check',cool:3});
+   say(pick(['OH ! Il l\'a frappé solidement !','Quelle mise en échec !','Boum ! Contre la bande !','Il l\'a mis au tapis !','Une charge épaule contre épaule, impeccable !','Il ne l\'a pas vu venir !','Ça résonne dans toute la patinoire !']),{pri:3,key:'check',cool:3});
    if(Math.random()<0.4)color(pick(['Ça, c\'est du hockey robuste.','Il a gardé la tête haute, mais le message est passé.','Ça va laisser des traces.']),{key:'chkc',cool:20});}break;
   case'trip':SND.thud(0.35);break;
   case'foul':float('PÉNALITÉ DIFFÉRÉE',a.x,a.y-7,1.4,'#ff6b5e');boo();say('Le bras de l\'arbitre est levé, punition à retardement !',{pri:2,key:'foul',cool:3});break;
@@ -4048,7 +4150,7 @@ fx=(k,a)=>{
   case'deke':{SND.stickhandle();noise(WN,{type:'bandpass',f:1800,q:0.8,a:0.03,v:0.08,d:0.25});const s=a&&a.s;
    if(s&&s.team===0&&!G.auto){const L={spin:'SPIN-O-RAMA !',side:'FEINTE !',goalie:'FEINTE SUR LE GARDIEN !',quick:'ENTRE LES JAMBES !',drag:'TOE DRAG !'}[a.type];if(L)float(L+(a.combo>1?' · COMBO x'+a.combo:''),s.x,s.y-8,0.9,a.combo>1?'#ffb627':'#ffffff');}
    if(a&&a.type==='goalie')say(pick(['Il feinte le gardien !','Il va du revers au coup droit !']),{pri:2,key:'deke',cool:3});else if(a&&a.type==='spin')say(pick(['Spin-o-rama !','Quelle pirouette !']),{pri:2,key:'deke',cool:3});}break;
-  case'beat':float('ÉLIMINÉ !',a.o.x,a.o.y-6.5,0.9,'#7fe0a8');SLOWMO=performance.now()+160;say(pick(['Quelle feinte !','Il le déjoue !','Il le laisse sur place !','Des mains de velours !']),{pri:2,key:'deke',cool:4});break;
+  case'beat':float('ÉLIMINÉ !',a.o.x,a.o.y-6.5,0.9,'#7fe0a8');SLOWMO=performance.now()+160;say(pick(['Quelle feinte !','Il le déjoue !','Il le laisse sur place !','Des mains de velours !','Il l\'a mis dans le vent !','Quel slalom !']),{pri:2,key:'deke',cool:4});break;
   case'block':SND.thud(0.4);if(a){float('TIR BLOQUÉ',a.x,a.y-6.5,0.9,'#cfd8e6');say(pick(['Bloqué !','Il se jette devant le tir !']),{pri:2,key:'block',cool:4});}break;
   case'switch':SND.recv();if(a)float(TAG(a),a.x,a.y-8.2,0.9,'#ffb627');break;
   case'linechg':float(a==='d'?'CHANGEMENT · DÉFENSE':'CHANGEMENT · ATTAQUE',RW-10,G.puck.y-6,1.4,'#9ec3ff');say(a==='d'?'Changement de paire à la ligne bleue.':'Changement de trio à la volée.',{pri:0.5,key:'line',cool:25});break;
@@ -4070,7 +4172,7 @@ fx=(k,a)=>{
    if(G){const c=G.col[a];for(let i=0;i<90;i++)parts.push({x:CX,y:a===0?GL:RH-GL,vx:(Math.random()-0.5)*50,vy:(Math.random()-0.5)*50,life:1.2+Math.random(),c:Math.random()<0.5?c.c1:c.c2,r:0.4+Math.random()*0.5});
     const ot=G.time-(G.otShot||-9)<1.5;if(a===0&&ot)float('ONE-TIMER !',CX,22,1.6);
     const T=G.t[a],sc=G.scorer,ctx_=sc&&G.time-(sc.dekeT||-9)<1.5?'deke':ot||(sc&&G.time-(sc.recvT||-9)<0.6)?'ot':G.time-G.lastSave<1.5?'reb':'shot';
-    let call=pick(['IL LANCE... ET LE BUUUUT !','IL COMPTE ! IL COMPTE !','LANCE ET COMPTE !','DANS LE FOND DU FILET !'])+' ';
+    let call=pick(['IL LANCE... ET LE BUUUUT !','IL COMPTE ! IL COMPTE !','LANCE ET COMPTE !','DANS LE FOND DU FILET !','LA LAMPE ROUGE S\'ALLUME !','BUT ! BUT ! BUT !','ET ÇA RENTRE !','QUEL BUT !'])+' ';
     call+=sc?`${NM(sc)} ! ${NM(sc)} pour ${T.name} !`:`${T.name} marque !`;if(G.assists&&G.assists.length)call+=` Sur une passe de ${G.assists.map(NM).join(' et ')}.`;
     if(G.ppGoal)call+=' En avantage numérique !';else if(G.shGoal)call+=' En désavantage numérique, quel exploit !';
     setTimeout(()=>{if(!G)return;say(call,{pri:4});say(scoreLine(),{pri:4,queue:true});
@@ -4112,8 +4214,7 @@ function commTick(){
   }else if(o&&o.isGk){lastOwnTeam=-1;}
   if(!o&&G.lastSaveC&&now-G.lastSaveC<900&&now>rebT){for(const g of G.gk)if(Math.hypot(p.x-g.x,p.y-g.y)<7){rebT=now+4000;say(pick(['Le retour !','La rondelle traîne devant le filet !','Mêlée devant le but !']),{pri:2});break;}}
   if(now>CRW.nextChant){CRW.nextChant=now+30000+Math.random()*20000;if(Math.random()<0.6)lightFlares(2+Math.floor(Math.random()*2),CRW.home);}
-  if(now-COMM.talkT>8500&&now-(COMM.last.fill||0)>11000){COMM.last.fill=now;COMM.talkT=now;const[a,b]=G.shots,lead=a>=b?0:1;
-   color(pick([`${tn(lead)} domine au chapitre des tirs, ${Math.max(a,b)} à ${Math.min(a,b)}.`,'Beaucoup d\'intensité dans ce match.',`Le trio de ${tn(0)} travaille fort le long des bandes.`,`Le gardien de ${tn(1)} est solide jusqu'ici.`,scoreLine(),'On sent que les deux équipes veulent ce match.']),{pri:0});}
+  if(now-COMM.talkT>7000&&now-(COMM.last.fill||0)>9000){COMM.last.fill=now;COMM.talkT=now;let t='';try{t=fillLine();}catch(e){t=scoreLine();}color(t,{pri:0});}
  }
  if(COMM.capT&&now>COMM.capT){COMM.capT=0;const el=$('#cap');if(el)el.hidden=true;}
 }
@@ -5207,6 +5308,48 @@ function loop(t){requestAnimationFrame(loop);const dt=Math.min(0.05,(t-last)/100
 let DRAWERR=0;
 function showFail(e,where){diag('err',where+': '+(e&&e.message));SHOW.err=(SHOW.err||0)+1;if(SHOW.err>=3){try{skipShow();}catch(x){SHOW.on=false;SHOW.mode='';showUI(false);}}}
 renderMenu();show('menu');requestAnimationFrame(loop);
+// ================= COMMENTAIRES ÉLARGIS : remplissage contextuel (temps, score, joueurs, saison, ambiance) =================
+const GEN_TALK=['Beaucoup d\'intensité dans ce match.','On sent que les deux équipes veulent ce match.','Le jeu est très rapide ce soir.','Les défenseurs ne laissent rien passer au centre.','Ça se joue beaucoup le long des bandes.',
+ 'Les entraîneurs se livrent une vraie partie d\'échecs.','Il faut tirer au filet, tout peut arriver avec un rebond.','La circulation devant le filet sera la clé.','On attend encore le jeu décisif.','La discipline sera importante dans ce match.',
+ 'Les changements de lignes sont parfaitement synchronisés.','Le premier but serait énorme dans ce contexte.','Les ailiers reviennent bien en défense.','C\'est un match d\'usure, physiquement exigeant.','La glace est rapide, la rondelle file vite.',
+ 'Il faudra gagner les batailles dans les coins.','Les deux gardiens sont bien concentrés.','Le jeu de transition fait la différence ce soir.','On sent beaucoup de nervosité sur les relances.','Une erreur peut tout changer dans ce genre de rencontre.'];
+function rmin(c){const m=c/G.per*20;return Math.max(1,Math.round(m));}
+function onIce(t){return G.sk.filter(s=>s.team===t&&live(s)&&!s.box&&s.pid);}
+function carP(s){return typeof CAR!=='undefined'&&CAR&&s&&s.pid&&s.pid.id?CAR.P[s.pid.id]:null;}
+function fillLine(){const L=[],[a,b]=G.score,[sa,sb]=G.shots,per=G.period,mins=rmin(G.clock),diff=Math.abs(a-b),lead=a>b?0:b>a?1:-1,career=typeof matchCfg!=='undefined'&&matchCfg&&matchCfg.season&&typeof CAR!=='undefined'&&CAR;
+ const add=(w,t)=>{if(t)for(let i=0;i<w;i++)L.push(t);};
+ add(2,pick(GEN_TALK));add(1,scoreLine());
+ // temps et score
+ if(G.ot)add(4,pick(['Prolongation : le prochain but décide de tout.','En prolongation, chaque erreur peut être fatale.','On joue avec moins de joueurs, il y a beaucoup d\'espace.']));
+ else{if(mins<=5)add(3,`Plus que ${mins} minute${mins>1?'s':''} dans ce ${per===1?'premier':per===2?'deuxième':'troisième'} tiers.`);
+  if(per>=3&&mins<=6&&diff===1)add(4,`${tn(lead===0?1:0)} doit pousser, il reste ${mins} minutes pour revenir.`);
+  if(per>=3&&mins<=6&&diff===0)add(4,pick(['Égalité dans les dernières minutes, le suspense est total !','Personne ne veut commettre l\'erreur fatale maintenant.']));
+  if(diff>=3)add(3,pick([`${tn(lead)} contrôle le match, ${Math.max(a,b)} à ${Math.min(a,b)}.`,`La soirée devient difficile pour ${tn(1-lead)}.`]));
+  if(per===1&&mins>=15&&a+b===0)add(2,'Début de match prudent des deux côtés.');}
+ // tirs et gardiens
+ if(sa+sb>=6){const dom=sa>=sb?0:1;add(2,`${tn(dom)} domine au chapitre des tirs, ${Math.max(sa,sb)} à ${Math.min(sa,sb)}.`);
+  for(const t of [0,1]){const g=G.gk[t],sh=G.shots[1-t],ga=G.score[1-t];if(sh>=8){const pc=Math.round((sh-ga)/sh*1000)/10;add(pc>=93?3:1,pc>=93?`${g.name||'Le gardien'} est impérial : ${sh-ga} arrêts sur ${sh} tirs.`:`${g.name||'Le gardien'} a accordé ${ga} but${ga>1?'s':''} sur ${sh} tirs.`);}}}
+ if(sa+sb>=10&&Math.abs(sa-sb)>=8&&((sa>sb&&a<=b)||(sb>sa&&b<=a)))add(4,`${tn(sa>sb?0:1)} tire beaucoup plus mais n'est pas récompensé au tableau.`);
+ // avantage numérique
+ for(const t of [0,1]){const n=G.sk.filter(s=>s.team===t&&s.box>0).length;if(n)add(4,pick([`${tn(1-t)} joue en avantage numérique, c'est le moment d'en profiter.`,`${tn(t)} doit tuer cette pénalité.`,`Le box-play de ${tn(t)} est sous pression.`]));}
+ // joueurs sur la glace
+ for(const t of [0,1]){const on=onIce(t);if(!on.length)continue;const s=on[Math.floor(Math.random()*on.length)],nm=NM(s),p=carP(s);
+  if(p&&p.st){const pts=p.st.g+p.st.a;if(p.st.gp>=5&&pts>0)add(2,pick([`${nm} compte ${p.st.g} but${p.st.g>1?'s':''} et ${pts} point${pts>1?"s":""} cette saison.`,`${nm} est à ${pts} point${pts>1?"s":""} en ${p.st.gp} matchs.`]));
+   if((p.form||0)>=1.5)add(2,`${nm} est dans une forme éblouissante en ce moment.`);if((p.form||0)<=-1.5)add(1,`${nm} traverse une période difficile, il cherche la confiance.`);
+   if(p.age>=34)add(1,`À ${p.age} ans, ${nm} reste un joueur précieux pour ${tn(t)}.`);if(p.age<=20)add(1,`${nm}, seulement ${p.age} ans, est l'un des grands espoirs du club.`);
+   if(typeof isLegend==='function'&&isLegend(p)&&p.team===CAR.club)add(2,`${nm} est une légende du club, le public l'adore.`);
+   if(typeof capt==='function'&&p.team===CAR.club&&capt().c===p.id)add(2,`Le capitaine ${nm} montre l'exemple sur la glace.`);
+   if(typeof attrTop==='function'&&p.pos!=='G'){const k=attrTop(p,1)[0];const tx={vis:`${nm} voit le jeu avant tout le monde.`,pas:`${nm} a des passes d'une précision remarquable.`,ctl:`Impossible de lui prendre le puck, ${nm} protège tout.`,tir:`Attention au tir de ${nm}, il est redoutable.`,off:`${nm} sait toujours se rendre disponible.`,def:`${nm} est un défenseur très discipliné.`,cal:`${nm} ne panique jamais, même sous pression.`,phy:`${nm} gagne presque tous ses duels physiques.`,reg:`${nm}, c'est la régularité incarnée.`}[k];add(1,tx);}}
+  else add(1,pick([`${nm} travaille fort sur cette présence.`,`Bonne présence de ${nm}.`]));}
+ // contexte de la saison
+ if(career){const S=CAR.S;try{const st=standings(S),ids=st.map(i=>TEAMS[i].id),i0=ids.indexOf(G.t[0].id),i1=ids.indexOf(G.t[1].id);
+   if(i0>=0&&i1>=0&&S.phase==='regular')add(2,`${tn(0)}, ${i0+1}e du classement, affronte le ${i1+1}e.`);
+   if(S.phase==='playoffs'){add(3,pick(['C\'est les playoffs : l\'intensité monte d\'un cran.','En playoffs, chaque présence compte double.']));const f=userFixture(S);if(f&&f.series){const s=f.series,w=[0,0];for(const g of s.games)w[g.w===s.a?0:1]++;add(3,`Dans la série, c'est ${Math.max(...w)} victoire${Math.max(...w)>1?'s':''} à ${Math.min(...w)}.`);}}
+   const opp=G.t[1].id===CAR.club?G.t[0].id:G.t[1].id;if(typeof isRival==='function'&&isRival(CAR.club,opp))add(3,pick(['Un derby, ça ne se joue pas, ça se gagne !','Les derbys ont toujours une saveur particulière.','L\'ambiance d\'un derby, rien de comparable.']));
+   if(typeof h2h==='function'){const H=h2h(opp);if(H.w+H.l>=3)add(1,`Historiquement, ${CAR.teams[CAR.club].name} compte ${H.w} victoires et ${H.l} défaites contre cet adversaire.`);}
+   const M=typeof ms==='function'?ms():null;if(M&&M.streak>=3)add(2,`${CAR.teams[CAR.club].name} reste sur ${M.streak} victoires de suite.`);
+   if(matchCfg.home&&CAR.lastAtt)add(1,`${CAR.lastAtt.toLocaleString('fr-CH')} spectateurs ce soir${typeof arenaName==='function'?' à la '+arenaName():''}.`);}catch(e){}}
+ return pick(L);}
 
 </script>
 
