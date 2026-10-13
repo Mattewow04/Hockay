@@ -4986,13 +4986,13 @@ function lineupOf(t){const sk=G.sk.filter(s=>s.team===t&&live(s)).sort((a,b)=>a.
  return{gk:gk.name||('#'+gk.num),d:sk.filter(s=>isD(s.i)).map(NM),f:sk.filter(s=>!isD(s.i)).map(NM),team:G.t[t]};}
 function startIntro(){
  if(!G)return;const home=CRW.home,away=1-home;
- SHOW.on=true;SHOW.mode='intro';SHOW.t=0;SHOW.ph='lineup';SHOW.spots=[0,1,2,3].map(i=>({ph:i*1.7,sp:0.35+i*0.08}));SHOW.mvp=null;SHOW.err=0;SHOW.fx=[];SHOW.dark=0.55;SHOW.said={};SHOW.cards=[lineupOf(0),lineupOf(1)];SHOW.P=[];SHOW.entryT=0;
+ SHOW.on=true;SHOW.mode='intro';SHOW.t=0;SHOW.ph='lineup';SHOW.spots=[0,1,2,3].map(i=>({ph:i*1.7,sp:0.35+i*0.08}));SHOW.mvp=null;SHOW.err=0;SHOW.fx=[];SHOW.dark=0.55;SHOW.said={};SHOW.lineupSaid=false;SHOW.lastSpeak=0;SHOW.cards=[lineupOf(0),lineupOf(1)];SHOW.P=[];SHOW.entryT=0;
  for(const s of G.sk){s.x=-60;s.y=50;s.vx=s.vy=0;}for(const g of G.gk){g.x=-60;g.y=50;}
  G.puck.x=-80;G.ref.x=CX;G.ref.y=50.5;
  showUI(true,'PASSER L\'ENTRÉE ▸');stopTalk();
  const a=SHOW.cards;const L=c=>`dans les buts, ${c.gk}. En défense, ${c.d.join(' et ')}. À l'attaque, ${c.f.slice(0,-1).join(', ')} et ${c.f[c.f.length-1]}.`;
  say(`Bonsoir et bienvenue pour ce match de National League entre ${G.t[home].name} et ${G.t[away].name} !`,{pri:5});
- setTimeout(()=>{if(SHOW.mode!=='intro'||SHOW.ph!=='lineup')return;say(`Voici la composition de départ de ${G.t[home].name} : ${L(a[home])}`,{pri:3,queue:true});say(`En face, pour ${G.t[away].name} : ${L(a[away])}`,{pri:3,queue:true,who:'col'});},400);
+ setTimeout(()=>{if(SHOW.mode!=='intro'||SHOW.ph!=='lineup')return;say(`Voici la composition de départ de ${G.t[home].name} : ${L(a[home])}`,{pri:3,queue:true});say(`En face, pour ${G.t[away].name} : ${L(a[away])}`,{pri:3,queue:true,who:'col'});SHOW.lineupSaid=true;},400);
  roar(0.15,3);}
 function entryMusic(dur,id){if(!sOK())return;stopMusic();perf=AC.createGain();perf.connect(MUS);const R=seeded((id||'NL')+'-entry'),b=0.42+R()*0.16,key=Math.floor(R()*7)-3;
  for(let i=0;i*b<dur-1;i++){const t=i*b;kick(t);if(i%2)clap(t,0.12);if(i>16)hat(t+b/2);}
@@ -5016,7 +5016,9 @@ function introStep(dt){
  if(!SHOW.on)return;SHOW.t+=dt;const T=SHOW.t;
  if(SHOW.mode==='cere'){cereStep(dt);fxStep(dt);return;}
  if(SHOW.ph==='lineup'){let speaking=false;try{speaking=HAS_TTS&&settings.comm&&(speechSynthesis.speaking||speechSynthesis.pending);}catch(e){}
-  if((T>9&&!speaking)||T>16)startEntry();return;}
+  // on attend la fin de la présentation des deux compositions (garde-fou à 50 s si la voix reste bloquée)
+  if(speaking)SHOW.lastSpeak=T;const quiet=T-(SHOW.lastSpeak||0);
+  if((T>9&&!speaking&&quiet>1.2&&(SHOW.lineupSaid||!HAS_TTS||!settings.comm||T>14))||T>50)startEntry();return;}
  if(SHOW.ph==='entry'){const E=T-SHOW.entryT;SHOW.dark=Math.min(0.78,SHOW.dark+dt*0.5);
   for(const t of [1-CRW.home,CRW.home]){const t0=t===CRW.home?8.4:0.8,key='ent'+t;
    if(t===CRW.home&&E>8.2&&!SHOW.homeMus){SHOW.homeMus=true;teamEntryMusic(t,22);}
@@ -5037,7 +5039,7 @@ function introStep(dt){
   if(SHOW.breathing){const n=Math.ceil(dt*140);for(let i=0;i<n;i++){const sp=24+Math.random()*16,a=Math.PI+(Math.random()-0.5)*0.45;SHOW.fx.push({k:'flame',x:RW+4.3,y:gateY(home)+(Math.random()-0.5)*0.6,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,r:0.5,life:0.85+Math.random()*0.3,max:1.1});}
    G.shake=Math.max(G.shake||0,0.05);if(!SHOW.said.roarD){SHOW.said.roarD=1;dragonRoar();}}
   else if(E>8.9&&E<11.2&&kind!=='dragon'&&!SHOW.said.rev){SHOW.said.rev=1;for(let i=0;i<4;i++)gateBurst(home);}
-  if((done&&E>12)||E>30){SHOW.ph='lights';SHOW.lt=T;say('Les lumières se rallument, place au hockey !',{pri:3,queue:true});roar(0.25,2);}
+  if((done&&E>29.5)||E>32){SHOW.ph='lights';SHOW.lt=T;say('Les lumières se rallument, place au hockey !',{pri:3,queue:true});roar(0.25,2);}
   fxStep(dt);return;}
  if(SHOW.ph==='lights'){SHOW.dark=Math.max(0,SHOW.dark-dt*0.9);fxStep(dt);for(const P of SHOW.P){P.s.vx*=0.9;P.s.vy*=0.9;}if(T-SHOW.lt>1.6)endIntro();}
 }
@@ -5299,7 +5301,7 @@ function loop(t){requestAnimationFrame(loop);const dt=Math.min(0.05,(t-last)/100
  if(AC&&AC.state!=='running'&&!paused&&settings.sound&&performance.now()>(window._acT||0)){window._acT=performance.now()+500;try{AC.resume();}catch(e){}}
  if(!paused&&SHOW.on){
   // garde-fou : un spectacle trop long ou qui plante est passé automatiquement
-  if(SHOW.t>(SHOW.mode==='intro'?75:60)){diag('show','timeout '+SHOW.mode);skipShow();}
+  if(SHOW.t>(SHOW.mode==='intro'?110:75)){diag('show','timeout '+SHOW.mode);skipShow();}
   try{introStep(dt);}catch(e){showFail(e,'introStep');}crowdStep(dt);for(const k of ['shootUp','a','b','c','chk','blk','call','passReq','A','C'])IN[k]=false;}
  else if(!paused){acc+=dt*(performance.now()<SLOWMO?0.28:1);let n=0;try{while(acc>=1/120&&n<8){step(1/120);IN.shootUp=false;IN.a=false;IN.b=false;IN.c=false;IN.chk=false;IN.blk=false;IN.call=false;IN.passReq=false;IN.A=false;IN.C=false;acc-=1/120;n++;}}catch(e){diag('err','step: '+(e&&e.message));acc=0;}if(n===8)acc=0;
   try{if(G&&G.state==='replay'){if(!REP.active)replayStart();replayApply();}else recFrame();}catch(e){diag('err','replay: '+(e&&e.message));if(G&&G.state==='replay')G.state='whistle';}crowdStep(dt);markIce();}
