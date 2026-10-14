@@ -4008,9 +4008,10 @@ function setSong(id,raw,name,off){const old=SONGS[id];if(old&&old.url){try{URL.r
 const hasSong=id=>!!(SONGS[id]&&(SONGS[id].buf||SONGS[id].url));
 let CUR_MEDIA=null;
 function mediaEl(S){if(S.el)return S.el;const v=document.createElement('video');v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='auto';v.src=S.url;v.style.cssText='position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;left:-10px;top:-10px';document.body.appendChild(v);S.el=v;return v;}
-function primeMedia(){for(const S of Object.values(SONGS)){if(!S.url||S.primed)continue;S.primed=true;try{const v=mediaEl(S);v.muted=true;const p=v.play();if(p&&p.then)p.then(()=>{v.pause();v.muted=false;}).catch(()=>{v.muted=false;});else{v.pause();v.muted=false;}}catch(e){}}}
+// débloque la lecture sur iPhone SANS faire entendre la musique : lecture muette puis pause, le son n'est réactivé qu'au moment de jouer vraiment
+function primeMedia(){for(const S of Object.values(SONGS)){if(!S.url||S.primed)continue;S.primed=true;try{const v=mediaEl(S);v.muted=true;v.volume=0;const stop=()=>{if(CUR_MEDIA!==v){try{v.pause();v.currentTime=S.off||0;}catch(e){}}};const p=v.play();if(p&&p.then)p.then(stop).catch(stop);else stop();setTimeout(stop,250);setTimeout(stop,1200);}catch(e){}}}
 function stopMedia(){const v=CUR_MEDIA;CUR_MEDIA=null;if(!v)return;clearInterval(v._fade);let k=1;v._fade=setInterval(()=>{k-=0.1;if(k<=0){clearInterval(v._fade);try{v.pause();}catch(e){}v.volume=1;}else v.volume=Math.max(0,k);},40);}
-function mediaPlay(S,maxSec){if(!settings.sound)return false;try{stopMedia();const v=mediaEl(S);clearInterval(v._fade);v.muted=false;v.volume=1;try{v.currentTime=S.off||0;}catch(e){}const p=v.play();if(p&&p.catch)p.catch(()=>{});CUR_MEDIA=v;
+function mediaPlay(S,maxSec){if(!settings.sound)return false;try{stopMedia();const v=mediaEl(S);clearInterval(v._fade);v.muted=false;v.volume=1;try{v.currentTime=S.off||0;}catch(e){}CUR_MEDIA=v;const p=v.play();if(p&&p.catch)p.catch(()=>{});
  clearTimeout(v._stop);v._stop=setTimeout(()=>{if(CUR_MEDIA===v)stopMedia();},Math.max(1,maxSec)*1000);return true;}catch(e){return false;}}
 const myTeam=()=>G?G.t[0].id:null;
 goalLen=id=>(hasSong('mine')&&id===myTeam())?13:id==='FRI'?9:6.5;
